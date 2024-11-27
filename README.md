@@ -15,6 +15,7 @@
 8. MotionGPT after 3D Reconstruction for plausible motion videos or 4D.
 9. @Joseph - Explore latent space manually
 
+---
 
 ### References
 
