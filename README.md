@@ -9,7 +9,8 @@
 ### Implementation
 
 0. Come up with a re-definition for creativity (with the evolution: you could move across domains --> Real or higher creativity at least). 
-1. Patch together pipeline: Evolutionary-ConceptLab -> zero123 -> 3DGS  (title: 3D Concept Generation)
+1. Patch together pipeline: Evolutionary-ConceptLab -> zero123++ -> 3DGS -> (Optional: Get 3D Asset --> Define Camera Traj. --> Output video --> Outpaint the video woth Follow-Your-Canvas (https://follow-your-canvas.github.io/) OR MV-consistent Super Resolution)  (title: (Optional: High-resolution) 3D Concept Generation)
+1.5 Selling outpainting: VLM guided (*increase artistic value*) outpainting for *high-resolution* creative generation
 2. Get visual (prelim) results from (1)
 3. Make nice videos for slides for results from (2) + Get generation times.
 4. **@Peyman @Joseph** - Ablation study A - Replace 3DGS with different versions of NeRF (Vanilla NeRF, MiP-NeRF, Fast-NeRF (for time), SinNeRF (these 2 for limited views), Depth-supervised NeRF: Fewer Views and Faster Training for Free (Code: https://github.com/dunbar12138/DSNeRF)) (Perform steps 1 to 3 for this as well)
