@@ -2,7 +2,7 @@ import os
 from copy import deepcopy
 from pathlib import Path
 
-from huggingface_hub import hf_hub_url, cached_download
+from huggingface_hub import hf_hub_url, hf_hub_download
 from omegaconf import DictConfig
 
 from kandinsky2.configs import CONFIG_2_1
@@ -24,7 +24,7 @@ def download_models_if_not_exist(
     elif task_type == "inpainting":
         model_name = "inpainting_fp16.ckpt"
         config_file_url = hf_hub_url(repo_id="ai-forever/Kandinsky_2.1", filename=model_name)
-    cached_download(
+    hf_hub_download(
         config_file_url,
         cache_dir=cache_dir,
         force_filename=model_name,
@@ -32,7 +32,7 @@ def download_models_if_not_exist(
     )
     prior_name = "prior_fp16.ckpt"
     config_file_url = hf_hub_url(repo_id="ai-forever/Kandinsky_2.1", filename=prior_name)
-    cached_download(
+    hf_hub_download(
         config_file_url,
         cache_dir=cache_dir,
         force_filename=prior_name,
@@ -48,21 +48,21 @@ def download_models_if_not_exist(
         "tokenizer_config.json",
     ]:
         config_file_url = hf_hub_url(repo_id="ai-forever/Kandinsky_2.1", filename=f"text_encoder/{name}")
-        cached_download(
+        hf_hub_download(
             config_file_url,
             cache_dir=cache_dir_text_en,
             force_filename=name,
             use_auth_token=use_auth_token,
         )
     config_file_url = hf_hub_url(repo_id="ai-forever/Kandinsky_2.1", filename="movq_final.ckpt")
-    cached_download(
+    hf_hub_download(
         config_file_url,
         cache_dir=cache_dir,
         force_filename="movq_final.ckpt",
         use_auth_token=use_auth_token,
     )
     config_file_url = hf_hub_url(repo_id="ai-forever/Kandinsky_2.1", filename="ViT-L-14_stats.th")
-    cached_download(
+    hf_hub_download(
         config_file_url,
         cache_dir=cache_dir,
         force_filename="ViT-L-14_stats.th",

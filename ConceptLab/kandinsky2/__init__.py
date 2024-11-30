@@ -1,5 +1,5 @@
 import os
-from huggingface_hub import hf_hub_url, cached_download
+from huggingface_hub import hf_hub_url, hf_hub_download
 from copy import deepcopy
 from omegaconf.dictconfig import DictConfig
 
@@ -25,7 +25,7 @@ def get_kandinsky2_0(
     else:
         raise ValueError("Only text2img, img2img and inpainting is available")
 
-    cached_download(
+    hf_hub_download(
         config_file_url,
         cache_dir=cache_dir,
         force_filename=model_name,
@@ -42,7 +42,7 @@ def get_kandinsky2_0(
         "tokenizer_config.json",
     ]:
         config_file_url = hf_hub_url(repo_id="sberbank-ai/Kandinsky_2.0", filename=f"text_encoder1/{name}")
-        cached_download(
+        hf_hub_download(
             config_file_url,
             cache_dir=cache_dir_text_en1,
             force_filename=name,
@@ -58,7 +58,7 @@ def get_kandinsky2_0(
         "tokenizer_config.json",
     ]:
         config_file_url = hf_hub_url(repo_id="sberbank-ai/Kandinsky_2.0", filename=f"text_encoder2/{name}")
-        cached_download(
+        hf_hub_download(
             config_file_url,
             cache_dir=cache_dir_text_en2,
             force_filename=name,
@@ -66,7 +66,7 @@ def get_kandinsky2_0(
         )
     
     config_file_url = hf_hub_url(repo_id="sberbank-ai/Kandinsky_2.0", filename="vae.ckpt")
-    cached_download(
+    hf_hub_download(
         config_file_url,
         cache_dir=cache_dir,
         force_filename="vae.ckpt",
@@ -102,7 +102,7 @@ def get_kandinsky2_1(
     elif task_type == "inpainting":
         model_name = "inpainting_fp16.ckpt"
         config_file_url = hf_hub_url(repo_id="sberbank-ai/Kandinsky_2.1", filename=model_name)
-    cached_download(
+    hf_hub_download(
         config_file_url,
         cache_dir=cache_dir,
         force_filename=model_name,
@@ -110,7 +110,7 @@ def get_kandinsky2_1(
     )
     prior_name = "prior_fp16.ckpt"
     config_file_url = hf_hub_url(repo_id="sberbank-ai/Kandinsky_2.1", filename=prior_name)
-    cached_download(
+    hf_hub_download(
         config_file_url,
         cache_dir=cache_dir,
         force_filename=prior_name,
@@ -127,7 +127,7 @@ def get_kandinsky2_1(
         "tokenizer_config.json",
     ]:
         config_file_url = hf_hub_url(repo_id="sberbank-ai/Kandinsky_2.1", filename=f"text_encoder/{name}")
-        cached_download(
+        hf_hub_download(
             config_file_url,
             cache_dir=cache_dir_text_en,
             force_filename=name,
@@ -135,7 +135,7 @@ def get_kandinsky2_1(
         )
 
     config_file_url = hf_hub_url(repo_id="sberbank-ai/Kandinsky_2.1", filename="movq_final.ckpt")
-    cached_download(
+    hf_hub_download(
         config_file_url,
         cache_dir=cache_dir,
         force_filename="movq_final.ckpt",
@@ -143,7 +143,7 @@ def get_kandinsky2_1(
     )
 
     config_file_url = hf_hub_url(repo_id="sberbank-ai/Kandinsky_2.1", filename="ViT-L-14_stats.th")
-    cached_download(
+    hf_hub_download(
         config_file_url,
         cache_dir=cache_dir,
         force_filename="ViT-L-14_stats.th",

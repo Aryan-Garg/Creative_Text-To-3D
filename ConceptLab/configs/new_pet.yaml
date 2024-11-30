@@ -1,4 +1,4 @@
-cache_root: "/tmp/kandinsky2"
+cache_root: "./tmp/kandinsky2/"
 output_dir: ""
 placeholder_token: "mypet"
 initializer_token: "pet"

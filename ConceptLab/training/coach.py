@@ -29,6 +29,9 @@ class Coach:
         if self.cfg.seed is not None:
             set_seed(self.cfg.seed)
 
+        self.cfg.cache_root = Path("/nobackup3/aryan/T23D/ConceptLab/tmp/kandinsky2")
+        # print("[+]", self.cfg)
+        # print()
         self.model = self.get_model()
 
         # Save EOS token_id and update tokenizers
