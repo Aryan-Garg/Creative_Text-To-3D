@@ -116,7 +116,8 @@ class Coach:
             from transformers import Blip2Processor, Blip2ForConditionalGeneration
 
             blip_processor = Blip2Processor.from_pretrained("Salesforce/blip2-flan-t5-xl")
-            blip_model = Blip2ForConditionalGeneration.from_pretrained("Salesforce/blip2-flan-t5-xl", device_map="auto",
+            blip_model = Blip2ForConditionalGeneration.from_pretrained("Salesforce/blip2-flan-t5-xl", 
+                                                                       device_map="auto",
                                                                        torch_dtype=torch.float16)
             return blip_processor, blip_model
         else:
