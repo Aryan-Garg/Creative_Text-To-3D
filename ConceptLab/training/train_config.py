@@ -12,7 +12,7 @@ class TrainConfig:
     # A token to use as initializer word.
     initializer_token: str
     # Path to pretrained model WITHOUT 2_1 folder
-    cache_root: Path = Path('/tmp/kandinsky2')
+    cache_root: Path = Path('./tmp/kandinsky2')
     # Defines which prompts to use
     learnable_property: LearnableProperties = LearnableProperties.object
     # The output directory where the model predictions and checkpoints will be written.

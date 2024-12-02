@@ -25,7 +25,7 @@ class TrainEvolutionConfig:
     # Weights for each of the mixed objects
     mix_weights: Optional[List[float]] = None
     # Path to pretrained model WITHOUT 2_1 folder
-    cache_root: Path = Path('/tmp/kandinsky2')
+    cache_root: Path = Path('/nobackup3/aryan/T23D/ConceptLab/tmp/kandinsky2')
     # Defines which prompts to use
     learnable_property: LearnableProperties = LearnableProperties.object
     # The output directory where the model predictions and checkpoints will be written.
@@ -90,8 +90,10 @@ class CoachEvolution(Coach):
         embeds = []
         for parent_dir in self.cfg.parents_images_dirs:
             # load all .jpg images from dir
+            print(f'[+] Loading parent dir {parent_dir}:')
             curr_parent_embeds = []
             for img_path in parent_dir.glob('*.jpg'):
+                print(f'[+] Loading image {img_path}')
                 curr_image_embeds = self.model.encode_images(Image.open(str(img_path)).convert('RGB'), is_pil=True)
                 curr_parent_embeds.append(curr_image_embeds)
             embeds.append(torch.cat(curr_parent_embeds, dim=0))

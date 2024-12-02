@@ -1,2 +1,5 @@
 ConceptLab/tmp
 ConceptLab/outputs
+*.ckpt
+*.zip
+*.pt

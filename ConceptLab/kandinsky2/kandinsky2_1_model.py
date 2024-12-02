@@ -36,7 +36,7 @@ class Kandinsky2_1:
         else:
             raise ValueError("Only text2img and inpainting is available")
 
-    
+        # print(self.config)
         self.tokenizer1 = AutoTokenizer.from_pretrained(self.config["tokenizer_name"])
         self.tokenizer2 = CustomizedTokenizer()
         clip_mean, clip_std = torch.load(
