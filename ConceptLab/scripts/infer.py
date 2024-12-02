@@ -9,6 +9,7 @@ import pyrallis
 import torch
 import torch.nn as nn
 from PIL import Image
+import random
 
 from kandinsky2 import load_utils
 from training.dataset import object_templates
@@ -25,7 +26,7 @@ class InferConfig:
     # Number of samples per prompt
     samples_per_prompt: int = 1
     # Path to pretrained model WITHOUT 2_1 folder
-    cache_root: Path = Path('/tmp/kandinsky2')
+    cache_root: Path = Path('/nobackup3/aryan/T23D/ConceptLab/tmp/kandinsky2')
     # GPU device
     device: str = "cuda:0"
     # The resolution for input images, all the images will be resized to this size
@@ -46,7 +47,7 @@ def save_images(model, save_path, prompt, img_prompt=None, img_size=512, seed=No
         img_prompt = prompt
     images = model.generate_text2img(
         prompt,
-        num_steps=50,
+        num_steps=100,
         batch_size=1,
         guidance_scale=7.5,
         h=img_size,
@@ -102,7 +103,7 @@ def main(cfg: InferConfig):
     prompts = cfg.prompts
     if prompts is None:
         prompts = [p.format(a='a', token='{}') for p in set(object_templates)]
-    seeds = range(cfg.samples_per_prompt)
+    seeds = random.sample(range(65000), cfg.samples_per_prompt)
     for prompt in prompts:
         if cfg.learned_embeds_path is not None:
             img_prompt = prompt.format(token)

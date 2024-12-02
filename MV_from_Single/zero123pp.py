@@ -20,14 +20,17 @@ pipeline.scheduler = EulerAncestralDiscreteScheduler.from_config(
 pipeline.to('cuda:0')
 
 # Download an example image.
-cond = Image.open(requests.get("https://d.skis.ltd/nrp/sample-data/lysol.png", stream=True).raw)
-
+# cond = Image.open(requests.get("https://d.skis.ltd/nrp/sample-data/lysol.png", stream=True).raw)
+cond = Image.open("sanity.jpg")
 # Run the pipeline!
-result = pipeline(cond, num_inference_steps=75).images[0]
+result = pipeline(cond, num_inference_steps=75)
+print(result)
+
+result_out = pipeline(cond, num_inference_steps=75).images[0]
 # for general real and synthetic images of general objects
 # usually it is enough to have around 28 inference steps
 # for images with delicate details like faces (real or anime)
 # you may need 75-100 steps for the details to construct
 
-result.show()
-result.save("output.png")
+result_out.show()
+result_out.save("output.png")

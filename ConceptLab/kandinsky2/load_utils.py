@@ -79,6 +79,7 @@ def get_model(cache_root: Path, device: str) -> Kandinsky2_1:
     config = DictConfig(deepcopy(CONFIG_2_1))
     cache_dir = cache_root / "2_1"
 
+    
     config["model_config"]["up"] = False
     config["model_config"]["use_fp16"] = True
     config["model_config"]["inpainting"] = False
@@ -92,7 +93,7 @@ def get_model(cache_root: Path, device: str) -> Kandinsky2_1:
 
     model_path = os.path.join(cache_dir, "decoder_fp16.ckpt")
     prior_path = os.path.join(cache_dir, "prior_fp16.ckpt")
-
+    print("[+] cache_dir", cache_dir, "\n")
     # Create model and check that initializer_token exists in both tokenizers and
     # placeholder_token doesn't exist in both tokenizers
     model = Kandinsky2_1(config=config,
