@@ -11,4 +11,4 @@ python -m scripts.infer --prompts="['a photo of a {}']" --output_dir outputs/par
  --learned_embeds_path outputs/weapon/250_step_embeds.bin --samples_per_prompt=32
 
 python -m scripts.infer --prompts="['a photo of a {}']" --output_dir outputs/parents/parent_pet/ \
- --learned_embeds_path outputs/pet/1250_step_embeds.bin --samples_per_prompt=32
+ --learned_embeds_path outputs/pets/1250_step_embeds.bin --samples_per_prompt=32
