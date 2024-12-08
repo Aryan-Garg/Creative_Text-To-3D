@@ -27,9 +27,9 @@
 
 8. Same as (6) but quantitative eval: Do clean-FID, clean-KID and clean-CLIP metrics. (Target dist: Max views)
 
-9. MotionGPT after 3D Reconstruction for plausible motion videos or 4D (valuable open-research - Could be a paper in itself)
+<!-- 9. MotionGPT after 3D Reconstruction for plausible motion videos or 4D (valuable open-research - Could be a paper in itself) -->
 
-10. **@Joseph** - Explore latent space manually
+9. **@Joseph** - Explore latent space manually
 
 ### Writing: 
 
